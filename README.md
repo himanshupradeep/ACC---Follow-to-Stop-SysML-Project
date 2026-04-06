@@ -14,7 +14,8 @@ Maps system-level expectations to functional, performance, and safety constraint
 * **Why we use it:** It creates a single source of truth that links physical design directly back to regulatory and safety goals.
 * **What problems it solves:** Prevents "orphan" requirements, unverified constraints, and scope creep by making traceability explicit.
 
-<img width="1227" height="740" alt="image" src="https://github.com/user-attachments/assets/51c46331-5a7b-4ec0-b6b0-4ed7306c5006" />
+<img width="1228" height="743" alt="image" src="https://github.com/user-attachments/assets/aa313398-8fbd-4d50-91e7-f347f11d5007" />
+
 
 
 **SysML Implementation Details:**
