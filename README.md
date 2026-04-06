@@ -21,7 +21,10 @@ Maps system-level expectations to functional, performance, and safety constraint
 **SysML Implementation Details:**
 * **`«derive»` dependencies:** Used when a sub-requirement is logically or mathematically computed from a parent (e.g., stopping distance physics derived from the follow function).
 * **`«refine»` dependencies:** Used to add measurable, testable granularity to a broader requirement (e.g., adding a specific ±0.2s tolerance to a general time gap rule).
-* **`«satisfy»` dependencies:** Connects the physical design blocks (like `ACCController`) to the requirements they fulfill.
+* **`«satisfy»` dependencies:** Connects the physical design blocks (like `ACCController`) to the requirements they fulfill. 
+* **`«trace»` dependencies:** Used to express a loose, non‑semantic relationship between elements when a connection must be maintained but no formal derivation, refinement, or satisfaction applies (e.g., linking stakeholder or ISO requirements to system requirements without claiming logical dependency).
+* **`«verify»` dependencies:** Connects test cases, procedures, or acceptance criteria to the requirements they confirm, indicating how and where a requirement is validated (e.g., a simulation or vehicle test verifying ACC deceleration to standstill).
+
 
 ---
 
