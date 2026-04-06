@@ -36,13 +36,16 @@ Defines the static architectural structure of the ACC system, detailing the bloc
 * **Why we use it:** To clearly distinguish between what the system owns completely and what it borrows from the rest of the vehicle.
 * **What problems it solves:** Eliminates ambiguous component ownership and clarifies structural dependencies before any code is written.
 
-<img width="1199" height="797" alt="image" src="https://github.com/user-attachments/assets/52decb40-ae0c-4838-a07c-1b38d665a7df" />
+<img width="1200" height="796" alt="image" src="https://github.com/user-attachments/assets/11c6f212-b488-461a-a885-828000f47314" />
 
 
 **SysML Implementation Details:**
 * **Composition (Filled Diamond):** Used for strict lifecycle ownership. For example, `ACCController` exists solely for the ACC system; if the system is removed, the controller goes with it.
 * **Aggregation (Open Diamond):** Used for shared resources. `FrontRadar` is shared with AEB and Lane Keeping, meaning it exists independently of the ACC function.
 * **Generalization (Open Triangle):** Establishes inheritance. The `ACCController` inherits base behaviors from an abstract `LongitudinalController`, promoting module reuse across other ADAS features.
+* **Realization (Dashed Line with Open Triangle):** Used to model interface implementation. `ACCController` realizes the `ILongitudinalControl` interface, meaning it fulfills a defined control contract without inheriting implementation. This enables loose coupling and allows different controllers to be substituted transparently.
+* **Association (Solid Line with Navigability Arrow):** Used to model communication between blocks without ownership. `ACCController` is associated with `SensorFusion`, indicating it consumes fused sensor data at runtime. Neither block owns the other; they simply collaborate.
+* **Dependency (Dashed Arrow):** Used for weak, non-structural usage relationships. `ACCController` depends on the `SAE_J1939_Library` to build CAN messages. The library is neither owned nor inherited—only used—making dependency the most appropriate and lightweight relationship.
 
 ---
 
@@ -54,12 +57,14 @@ Captures the external interactions between actors (Driver, Lead Vehicle, externa
 * **Why we use it:** To map out all triggers and responses without getting bogged down in how the algorithm works.
 * **What problems it solves:** Clearly defines the system boundary, ensuring engineers don't over-engineer features outside the scope of the ACC module.
 
-<img width="932" height="792" alt="image" src="https://github.com/user-attachments/assets/675b8188-65c2-43ff-bda7-dbb45129a4d3" />
+<img width="1016" height="793" alt="image" src="https://github.com/user-attachments/assets/4f6d2938-8b58-4c7c-ad3c-58cf5169a3ca" />
 
 **SysML Implementation Details:**
 * **External Actors:** `Lead Vehicle` is modeled as an actor because it provides direct external stimulus to the system boundary, impacting ACC behavior.
 * **`«include»` relationships:** Used for mandatory sub-behaviors. Every time the system executes "Decelerate to Standstill," it *must* execute "Issue Driver Warning."
 * **`«extend»` relationships:** Used for conditional behaviors. "Override ACC" only extends the base follow use case at a specific extension point if the pedal actuation condition is met.
+* **Generalization (Solid Line with Open Triangle at Parent):**
+Used to model inheritance between actors or use cases. The child element is a specialized version of the parent and inherits all its behaviors and relationships. Example: Driver generalizes from VehicleOperator, allowing future actors (e.g., Autonomous Agent) to reuse the same use cases without modifying the model.
 
 ---
 
@@ -110,7 +115,7 @@ Defines the mutually exclusive operational states of the ACC controller and the 
 * **Why we use it:** To ensure the system always has a deterministic response to any combination of inputs.
 * **What problems it solves:** Prevents "state explosion" and undefined system states that cause catastrophic edge-case failures.
 
-<img width="1089" height="796" alt="image" src="https://github.com/user-attachments/assets/c1d4d2d1-ea25-4f3a-9366-1ba92bb8fa42" />
+<img width="1082" height="799" alt="image" src="https://github.com/user-attachments/assets/69b7056c-a1f6-4c65-8a10-480e17411dee" />
 
 
 **SysML Implementation Details:**
