@@ -57,7 +57,8 @@ Captures the external interactions between actors (Driver, Lead Vehicle, externa
 * **Why we use it:** To map out all triggers and responses without getting bogged down in how the algorithm works.
 * **What problems it solves:** Clearly defines the system boundary, ensuring engineers don't over-engineer features outside the scope of the ACC module.
 
-<img width="1016" height="793" alt="image" src="https://github.com/user-attachments/assets/4f6d2938-8b58-4c7c-ad3c-58cf5169a3ca" />
+<img width="1037" height="792" alt="Screenshot 2026-04-08 103340" src="https://github.com/user-attachments/assets/7ac54387-d934-443c-8242-601927856822" />
+
 
 **SysML Implementation Details:**
 * **External Actors:** `Lead Vehicle` is modeled as an actor because it provides direct external stimulus to the system boundary, impacting ACC behavior.
