@@ -1,8 +1,8 @@
 # ADAS System Architecture: ACC Follow to Stop (SysML)
 
-This repository contains a comprehensive Model-Based Systems Engineering (MBSE) project detailing the architecture, requirements, and behavior of an **Adaptive Cruise Control (ACC) Follow to Stop** system. 
+In this repository, I have built a comprehensive Model-Based Systems Engineering (MBSE) project detailing the architecture, requirements, and behavior of an **Adaptive Cruise Control (ACC) Follow to Stop** system. 
 
-It demonstrates the application of SysML to map out advanced driver-assistance systems (ADAS) logic, from stakeholder requirements down to ECU-level message exchanges and state logic.
+I have demonstrated the application of SysML to map out advanced driver-assistance systems (ADAS) logic, from stakeholder requirements down to ECU-level message exchanges and state logic.
 
 ---
 
